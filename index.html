@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>SW2015 Tutorial</title>
+		<link rel="stylesheet" type="text/css" href="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">'
+		<link rel="stylesheet" type="text/css" href="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap-theme.min.css">
+		<script type="text/javascript" src="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
+		<link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro' rel='stylesheet' type='text/css'>
+		<style>
+		section {
+			width: 48%;
+			margin-right: 1%;
+			display: inline-block;}
+		</style>
+	</head>
+
+	<body>
+		<div class="container">
+			<div class='row'>
+				<div class='col-lg-12'>
+					<h1>Assignment 4 - A Semantic Web Application</h1>
+					<h3><small>Door Anna Tol | VuIDNet atl440 | 30 september 2015</small></h3>
+				</div>
+			</div>
+			<hr>
+			<div class='row'>
+				<div class='col-lg-6'>
+					<h3>Parsing queries</h3>
+					<p>Om het verschil te laten zien tussen queries met gebruik van inferencing en zonder zullen we de volgende query parsen.</p><br>
+					<div style="border: 1px solid lightgrey; padding: 18px;"><p><i>prefix owl: < http://www.w3.org/2002/07/owl# > select distinct ?pizza  where { ?pizza a owl:ObjectProperty . }</i></p></div>
+					<section> 
+						<h3><small>Zonder inferencing</small></h3>
+						<p>Door op onderstaande knop te drukken zullen de resultaten van de ingevoerde query verschijnen. Deze zullen getoond worden zonder inferencing.</p><br>
+						<div><a id="InferencingOff" class='btn btn-primary'>Toon resultaat</a></div><br>
+					</section>
+					<section> 
+						<h3><small>Met inferencing</small></h3>
+						<p>Door op de onderstaande knop te drukken worden de resultaten weergegeven van dezelfde query maar dan met gebruik van inferencing.</p><br>
+						<div><a id="InferencingOn" class='btn btn-primary'>Toon resultaat</a></div><br>
+					</section>
+				</div>
+				<div class='col-lg-6'>
+					<h3>Resultaat</h3>
+					<div id="resultaat" class='well' style='height: 15em; scroll: both; overflow: auto;'>Het resultaat zal hier verschijnen.</div>
+					<h3><small>Waarom een verschillend aantal resultaten?</small></h3>
+					<p>Zonder inferencing neemt de query alle ObjectProperties waaruit de pizza ontologie bestaat. Als we inferencing aanzetten vind de reasoner via de owl prefix dat ObjectProperties altijd een top- en een bottom-ObjectProperty moeten hebben. Daarom worden er bij het aanzettten van de inferencing twee resultaten toegevoegd.</p>
+				</div>
+			</div>
+
+		</div>
+
+		<script src='{{ url_for("static", filename="js/jquery-1.11.0.min.js") }}' type='text/javascript'></script>
+		<script src='{{ url_for("static", filename="js/tutorial.js") }}' type='text/javascript'></script>
+
+	</body>
+</head>
